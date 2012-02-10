@@ -26,13 +26,13 @@ public class EastWalkerTest {
         Location expectedLocation = new Location(1, 2);
         eastWalkingRobot.setLocation(startLocation);
 
-        // the eastWalkingRobot is at the start location
+        // The eastWalkingRobot is at the start location.
         assertEquals(startLocation, eastWalkingRobot.getLocation());
 
         // get the eastWalkingRobot determined location
         Location determinedLocation = eastWalkingRobot.determineNextLocation();
 
-        // did the eastWalkingRobot determine the expected location
+        // Did the eastWalkingRobot determine the expected location?
         assertEquals(expectedLocation, determinedLocation);
     }
 }
