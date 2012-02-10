@@ -36,7 +36,7 @@ public class SimulatorTest {
 
     @Test
     public void testMoveRobots() throws Exception {
-
+        // set the start location
         Location startLocation = new Location(1, 1);
         robot.setLocation(startLocation);
 
