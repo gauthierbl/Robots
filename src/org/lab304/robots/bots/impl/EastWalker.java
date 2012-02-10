@@ -15,6 +15,6 @@ public class EastWalker extends AbstractRobot {
     @Override
     public Location determineNextLocation() {
         int newY = this.getLocation().getY() + this.getSpeed();
-        return new Location(this.getLocation().getY(), newY);
+        return new Location(this.getLocation().getX(), newY);
     }
 }

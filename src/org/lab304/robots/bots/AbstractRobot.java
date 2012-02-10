@@ -36,6 +36,16 @@ public abstract class AbstractRobot implements Robot {
     }
 
     @Override
+    public String toString() {
+        return "Robot{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", myLocation=" + myLocation +
+                ", speed=" + speed +
+                '}';
+    }
+
+    @Override
     public final String getType() {
         return type;
     }

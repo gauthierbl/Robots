@@ -35,4 +35,26 @@ public class EastWalkerTest {
         // Did the eastWalkingRobot determine the expected location?
         assertEquals(expectedLocation, determinedLocation);
     }
+
+    @Test
+    public void testDetermineNextLocation_loop10Times() throws Exception {
+
+        Location startLocation = new Location(0, 0);
+        eastWalkingRobot.setLocation(startLocation);
+
+        // The eastWalkingRobot is at the start location.
+        assertEquals(startLocation, eastWalkingRobot.getLocation());
+
+        for (int i = 0; i < 10; i++) {
+            Location expectedLocation = new Location(0, i + 1);
+
+            // get the eastWalkingRobot determined location
+            Location determinedLocation = eastWalkingRobot.determineNextLocation();
+            eastWalkingRobot.move(determinedLocation);
+
+            // Did the eastWalkingRobot determine the expected location?
+            assertEquals(expectedLocation, determinedLocation);
+        }
+
+    }
 }
