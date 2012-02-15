@@ -16,7 +16,8 @@ import java.util.Hashtable;
  */
 public class Playfield {
 
-    //todo: add error checking to make sure the palyfield is the size the header says it is.
+    // todo: add error checking to make sure the palyfield is the size the header says it is.
+    // Review: make a PlayfieldReader to read in a playfield.
 
     private Hashtable<Location, Tile> tiles = new Hashtable<Location, Tile>();
     private Hashtable<String, Robot> robots;
@@ -94,6 +95,7 @@ public class Playfield {
     }
 
     private TileType getTypeFromData(char c) {
+        // Todo: based on the char c determine the TileType
         return TileType.LAND;
     }
 
