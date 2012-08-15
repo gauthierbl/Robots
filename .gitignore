@@ -1,0 +1,24 @@
+# Compiled source #
+###################
+*.class
+
+# Package Files #
+#################
+*.jar
+*.war
+*.ear
+
+# Build output directories #
+############################
+/target
+*/target
+/build
+*/build
+
+# IntelliJ specific files/directories #
+#######################################
+out
+.idea
+*.ipr
+*.iws
+*.iml
