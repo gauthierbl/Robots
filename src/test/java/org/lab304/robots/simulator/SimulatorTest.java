@@ -1,4 +1,4 @@
-package org.lab304.robots.tests;
+package org.lab304.robots.simulator;
 
 
 import org.junit.Before;
