@@ -22,5 +22,5 @@ public interface Robot {
 
     public int getSpeed();
 
-
+    public String display();
 }

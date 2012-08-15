@@ -65,4 +65,8 @@ public abstract class AbstractRobot implements Robot {
         return speed;
     }
 
+    @Override
+    public String display() {
+        return id;
+    }
 }

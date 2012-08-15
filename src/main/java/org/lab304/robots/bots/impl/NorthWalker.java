@@ -9,7 +9,7 @@ import org.lab304.robots.location.Location;
 public class NorthWalker extends AbstractRobot {
 
     public NorthWalker() {
-        super("1", "NorthWalker", 1);
+        super("N", "NorthWalker", 1);
     }
 
 

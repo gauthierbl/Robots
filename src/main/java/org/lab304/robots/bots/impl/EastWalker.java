@@ -9,7 +9,7 @@ import org.lab304.robots.location.Location;
 public class EastWalker extends AbstractRobot {
 
     public EastWalker() {
-        super("1", "EastWalker", 1);
+        super("E", "EastWalker", 1);
     }
 
     @Override

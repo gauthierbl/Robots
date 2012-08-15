@@ -67,8 +67,25 @@ public class Tile {
         this.robot = robot;
     }
 
+    public String display() {
+        String result;
+
+        if (null != robot) {
+            result = robot.display();
+        } else {
+            result = Character.toString(type.display());
+        }
+
+        return result;
+    }
+
     @Override
     public String toString() {
-        return ".";
+        return "Tile{" +
+                "location=" + location +
+                ", neighbors=" + neighbors +
+                ", type=" + type +
+                ", robot=" + robot +
+                '}';
     }
 }
