@@ -11,7 +11,7 @@ public class PlayFieldDriver {
     public static void main(String[] args) throws IOException {
         Playfield p = new Playfield();
 
-        p.loadPlayfieldFromFile("./data/SimplePlayfield.txt");
+        p.loadPlayfieldFromFile("./src/main/resources/SimplePlayfield.txt");
 
         p.printPlayField();
 
