@@ -15,11 +15,11 @@ import java.util.Map;
 /**
  * Class description.
  */
-public class Playfield {
+public class PlayField {
 
-    // todo: add error checking to make sure the palyfield is the size the header says it is.
+    // todo: add error checking to make sure the PlayField is the size the header says it is.
     // TODO: some unit test would be nice.
-    // Review: make a PlayfieldReader to read in a playfield.
+    // Review: make a PlayFieldReader to read in a PlayField.
 
     private Hashtable<Location, Tile> tiles = new Hashtable<Location, Tile>();
     private Hashtable<String, Robot> robots = new Hashtable<String, Robot>();
@@ -225,5 +225,9 @@ public class Playfield {
 
         // inform robot of new location
         bot.move(location);
+    }
+
+    public boolean locationExists(Location location) {
+        return tiles.containsKey(location);
     }
 }
