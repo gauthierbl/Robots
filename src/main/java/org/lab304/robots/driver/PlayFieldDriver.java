@@ -2,9 +2,8 @@ package org.lab304.robots.driver;
 
 import org.lab304.robots.bots.Robot;
 import org.lab304.robots.bots.impl.EastWalker;
-import org.lab304.robots.bots.impl.SouthWalker;
 import org.lab304.robots.location.Location;
-import org.lab304.robots.playfield.Playfield;
+import org.lab304.robots.playfield.PlayField;
 
 import java.io.IOException;
 
@@ -13,7 +12,7 @@ import java.io.IOException;
  */
 public class PlayFieldDriver {
     public static void main(String[] args) throws IOException {
-        Playfield p = new Playfield();
+        PlayField p = new PlayField();
 
         p.loadPlayfieldFromFile("./src/main/resources/SimplePlayfield.txt");
 
