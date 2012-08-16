@@ -1,6 +1,8 @@
 package org.lab304.robots.driver;
 
+import org.lab304.robots.bots.Robot;
 import org.lab304.robots.bots.impl.EastWalker;
+import org.lab304.robots.bots.impl.SouthWalker;
 import org.lab304.robots.location.Location;
 import org.lab304.robots.playfield.Playfield;
 
@@ -15,9 +17,15 @@ public class PlayFieldDriver {
 
         p.loadPlayfieldFromFile("./src/main/resources/SimplePlayfield.txt");
 
-        p.placeRobot(new Location(0,0), new EastWalker());
+        Robot bot = new EastWalker();
 
+        p.placeRobot(bot, new Location(0,0));
         p.printPlayField();
+        System.out.println();
+
+        p.placeRobot(bot, bot.determineNextLocation());
+        p.printPlayField();
+        System.out.println();
 
     }
 }

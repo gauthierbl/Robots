@@ -1,8 +1,8 @@
 package org.lab304.robots.driver;
 
 import org.lab304.robots.bots.Robot;
+import org.lab304.robots.bots.impl.SouthWalker;
 import org.lab304.robots.bots.impl.EastWalker;
-import org.lab304.robots.bots.impl.NorthWalker;
 import org.lab304.robots.location.Location;
 import org.lab304.robots.simulator.Simulator;
 
@@ -17,8 +17,8 @@ public class Driver {
     public static void main(String[] args) {
         System.out.println("Hello World!");
 
-        Robot eastWalkingRobot = new EastWalker();
-        Robot northWalkingRobot = new NorthWalker();
+        Robot eastWalkingRobot = new SouthWalker();
+        Robot northWalkingRobot = new EastWalker();
 
 
         eastWalkingRobot.setLocation(new Location(1, 2));

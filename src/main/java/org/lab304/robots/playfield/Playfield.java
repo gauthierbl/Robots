@@ -22,7 +22,7 @@ public class Playfield {
     // Review: make a PlayfieldReader to read in a playfield.
 
     private Hashtable<Location, Tile> tiles = new Hashtable<Location, Tile>();
-    private Hashtable<String, Robot> robots;
+    private Hashtable<String, Robot> robots = new Hashtable<String, Robot>();
 
     int rows; // the Y
     int cols; // the X
@@ -210,7 +210,20 @@ public class Playfield {
         }
     }
 
-    public void placeRobot(Location location, Robot bot) {
+    public void placeRobot(Robot bot, Location location) {
+
+        if (!robots.containsKey(bot.getId())) {
+            // new robot to playfield
+            robots.put(bot.getId(), bot);
+        } else {
+            // existing robot on playfield, remove bot from old location
+            tiles.get(bot.getLocation()).setRobot(null);
+        }
+
+        // add bot to new location
         tiles.get(location).setRobot(bot);
+
+        // inform robot of new location
+        bot.move(location);
     }
 }

@@ -4,7 +4,7 @@ package org.lab304.robots.tests;
 import org.junit.Before;
 import org.junit.Test;
 import org.lab304.robots.bots.Robot;
-import org.lab304.robots.bots.impl.NorthWalker;
+import org.lab304.robots.bots.impl.EastWalker;
 import org.lab304.robots.location.Location;
 import org.lab304.robots.simulator.Simulator;
 
@@ -28,7 +28,7 @@ public class SimulatorTest {
         sim = new Simulator();
         robots = new ArrayList<Robot>();
 
-        robot = new NorthWalker();
+        robot = new EastWalker();
 
         robots.add(robot);
     }
@@ -40,13 +40,13 @@ public class SimulatorTest {
         Location startLocation = new Location(1, 1);
         robot.setLocation(startLocation);
 
-        // the northWalkingRobot is at the start location
+        // the eastWalkingRobot is at the start location
         assertEquals(startLocation, robot.getLocation());
 
-        // move the northWalkingRobot
+        // move the eastWalkingRobot
         sim.moveRobots(robots);
 
-        // did the northWalkingRobot move?
+        // did the eastWalkingRobot move?
         assertNotSame(startLocation, robot.getLocation());
     }
 }
