@@ -1,4 +1,4 @@
-package org.lab304.robots.tests;
+package org.lab304.robots.bots;
 
 import org.junit.Before;
 import org.junit.Ignore;
