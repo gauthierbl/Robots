@@ -21,6 +21,7 @@ public class SouthWalkerTest {
     }
 
     @Test
+    @Ignore
     public void testDetermineNextLocation() throws Exception {
 
         Location startLocation = new Location(1, 1);
