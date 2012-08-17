@@ -14,7 +14,7 @@ public class PlayFieldDriver {
     public static void main(String[] args) throws IOException {
         PlayField p = new PlayField();
 
-        p.loadPlayfieldFromFile("./src/main/resources/SimplePlayfield.txt");
+        p.loadPlayFieldFromFile("./src/main/resources/SimplePlayfield.txt");
 
         Robot bot = new EastWalker();
 

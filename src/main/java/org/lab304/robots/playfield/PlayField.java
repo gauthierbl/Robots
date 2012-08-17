@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class PlayField {
 
-    // todo: add error checking to make sure the PlayField is the size the header says it is.
+
     // TODO: some unit test would be nice.
     // Review: make a PlayFieldReader to read in a PlayField.
 
@@ -28,7 +28,10 @@ public class PlayField {
     int cols; // the X
 
 
-    public void loadPlayfieldFromFile(String fileName) throws IOException {
+    public void loadPlayFieldFromFile(String fileName) throws IOException {
+        // Review: make a PlayFieldReader to read in a PlayField.
+        // todo: add error checking to make sure the PlayField is the size the header says it is.
+
         BufferedReader input = new BufferedReader(new FileReader(fileName));
         int x = 0;
         int y = 0;
@@ -212,22 +215,25 @@ public class PlayField {
 
     public void placeRobot(Robot bot, Location location) {
 
+        // TODO should be 2 different methods, one is placing hte bot on the field for the first time the other is moving an existing bot on the field
+
         if (!robots.containsKey(bot.getId())) {
             // new robot to playfield
             robots.put(bot.getId(), bot);
         } else {
             // existing robot on playfield, remove bot from old location
-            tiles.get(bot.getLocation()).setRobot(null);
+            tiles.get(bot.getTile().getLocation()).setRobot(null);
         }
 
         // add bot to new location
         tiles.get(location).setRobot(bot);
-
-        // inform robot of new location
-        bot.move(location);
     }
 
     public boolean locationExists(Location location) {
         return tiles.containsKey(location);
+    }
+
+    public Tile getTile(Location locaiton) {
+        return tiles.get(locaiton);
     }
 }

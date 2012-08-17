@@ -35,7 +35,8 @@ public class Simulator implements Runnable {
 
             if (isLocationValid(robotNextLocation)) {
                 playField.placeRobot(robot, robotNextLocation);
-                robot.move(robotNextLocation);
+
+                robot.hasMovedTo(playField.getTile(robotNextLocation));
             } else {
                 // review: do we want to tell the bot it made a bad move?
                 // robot.failedMove();
@@ -66,8 +67,8 @@ public class Simulator implements Runnable {
 
     public void placeBotsInPlayField() {
         for (Robot robot : robots) {
-            if (isLocationValid(robot.getLocation())) {
-                playField.placeRobot(robot, robot.getLocation());
+            if (isLocationValid(robot.getTile().getLocation())) {
+                playField.placeRobot(robot, robot.getTile().getLocation());
             }
         }
     }

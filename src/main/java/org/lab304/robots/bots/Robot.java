@@ -1,6 +1,7 @@
 package org.lab304.robots.bots;
 
 import org.lab304.robots.location.Location;
+import org.lab304.robots.playfield.tile.Tile;
 
 /**
  * Class description.
@@ -8,7 +9,7 @@ import org.lab304.robots.location.Location;
 public interface Robot {
 
 
-    public void move(Location newLocation);
+    public void hasMovedTo(Tile newTile);
 
     public Location determineNextLocation();
 
@@ -16,9 +17,9 @@ public interface Robot {
 
     public String getType();
 
-    public Location getLocation();
+    public Tile getTile();
 
-    public void setLocation(Location newLocation);
+    public void setTile(Tile tile);
 
     public int getSpeed();
 

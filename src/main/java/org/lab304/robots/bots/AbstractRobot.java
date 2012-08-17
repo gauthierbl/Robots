@@ -1,6 +1,6 @@
 package org.lab304.robots.bots;
 
-import org.lab304.robots.location.Location;
+import org.lab304.robots.playfield.tile.Tile;
 
 /**
  * Class description.
@@ -10,13 +10,12 @@ public abstract class AbstractRobot implements Robot {
     private String id;
     private String type;
 
-    private Location myLocation;
+    private Tile tile;
     private int speed;
 
     public AbstractRobot() {
         this("", "", 0);
     }
-
 
     public AbstractRobot(String id, String type, int speed) {
         this.id = id;
@@ -25,9 +24,9 @@ public abstract class AbstractRobot implements Robot {
     }
 
     @Override
-    public final void move(Location newLocation) {
+    public final void hasMovedTo(Tile newTile) {
         //TODO: other code might go here to confirm move
-        setLocation(newLocation);
+        setTile(newTile);
     }
 
     @Override
@@ -40,7 +39,7 @@ public abstract class AbstractRobot implements Robot {
         return "Robot{" +
                 "id='" + id + '\'' +
                 ", type='" + type + '\'' +
-                ", myLocation=" + myLocation +
+                ", location=" + tile.getLocation() +
                 ", speed=" + speed +
                 '}';
     }
@@ -51,13 +50,13 @@ public abstract class AbstractRobot implements Robot {
     }
 
     @Override
-    public final Location getLocation() {
-        return myLocation;
+    public Tile getTile() {
+        return tile;
     }
 
     @Override
-    public final void setLocation(Location newLocation) {
-        myLocation = newLocation;
+    public void setTile(Tile tile) {
+        this.tile = tile;
     }
 
     @Override

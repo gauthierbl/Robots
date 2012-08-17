@@ -2,6 +2,7 @@ package org.lab304.robots.bots.impl;
 
 import org.lab304.robots.bots.AbstractRobot;
 import org.lab304.robots.location.Location;
+import org.lab304.robots.playfield.tile.Tile;
 
 /**
  * Class description.
@@ -14,7 +15,7 @@ public class SouthWalker extends AbstractRobot {
 
     @Override
     public Location determineNextLocation() {
-        int newY = this.getLocation().getY() + this.getSpeed();
-        return new Location(this.getLocation().getX(), newY);
+        Tile southTile = this.getTile().getSouthNeighborTile();
+        return southTile.getLocation();
     }
 }

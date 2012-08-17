@@ -31,9 +31,7 @@ public class Tile {
     private Robot robot = null;
 
     public Tile() {
-
     }
-
 
     public Location getLocation() {
         return location;
@@ -83,9 +81,43 @@ public class Tile {
     public String toString() {
         return "Tile{" +
                 "location=" + location +
-                ", neighbors=" + neighbors +
+                ", neighbors.size()=" + neighbors.size() +
                 ", type=" + type +
                 ", robot=" + robot +
                 '}';
     }
+
+    public Tile getNorthNeighborTile() {
+        return getNeighbor(Direction.NORTH);
+    }
+
+    public Tile getNorthEastNeighborTile() {
+        return getNeighbor(Direction.NORTHEAST);
+    }
+
+    public Tile getEastNeighborTile() {
+        return getNeighbor(Direction.EAST);
+    }
+
+    public Tile getSouthEastNeighborTile() {
+        return getNeighbor(Direction.SOUTHEAST);
+    }
+
+
+    public Tile getSouthNeighborTile() {
+        return getNeighbor(Direction.SOUTH);
+    }
+
+    public Tile getSouthWestNeighborTile() {
+        return getNeighbor(Direction.SOUTHWEST);
+    }
+
+    public Tile getNorthWestNeighborTile() {
+        return getNeighbor(Direction.NORTHWEST);
+    }
+
+    private Tile getNeighbor(Direction direction) {
+        return neighbors.get(direction);
+    }
+
 }
