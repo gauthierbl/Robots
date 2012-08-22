@@ -233,8 +233,8 @@ public class PlayField {
         return tiles.containsKey(location);
     }
 
-    public Tile getTile(Location locaiton) {
-        return tiles.get(locaiton);
+    public Tile getTile(Location location) {
+        return tiles.get(location);
     }
 
     public int getRows() {
@@ -243,5 +243,11 @@ public class PlayField {
 
     public int getCols() {
         return cols;
+    }
+
+    public boolean hasBot(Location location) {
+        Tile tile = tiles.get(location);
+
+        return null != tile.getRobot();
     }
 }

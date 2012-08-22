@@ -76,6 +76,11 @@ public class Simulator implements Runnable {
 
             Location startLocation = makeRandomLocation();
 
+            // if the location is in use by another bot, keep making new random locations until the location is not shared by another bot
+            while (playField.hasBot(startLocation)) {
+                startLocation = makeRandomLocation();
+            }
+
             moveRobot(robot, startLocation);
         }
     }
