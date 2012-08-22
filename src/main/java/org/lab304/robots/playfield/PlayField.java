@@ -33,7 +33,7 @@ public class PlayField {
         // todo: add error checking to make sure the PlayField is the size the header says it is.
 
         BufferedReader input = new BufferedReader(new FileReader(fileName));
-        int x = 0;
+        int x;
         int y = 0;
 
 
@@ -235,5 +235,13 @@ public class PlayField {
 
     public Tile getTile(Location locaiton) {
         return tiles.get(locaiton);
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getCols() {
+        return cols;
     }
 }

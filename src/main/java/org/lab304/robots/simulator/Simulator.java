@@ -6,6 +6,7 @@ import org.lab304.robots.playfield.PlayField;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 /**
  * Class description.
@@ -34,9 +35,7 @@ public class Simulator implements Runnable {
             Location robotNextLocation = robot.determineNextLocation();
 
             if (isLocationValid(robotNextLocation)) {
-                playField.placeRobot(robot, robotNextLocation);
-
-                robot.hasMovedTo(playField.getTile(robotNextLocation));
+                moveRobot(robot, robotNextLocation);
             } else {
                 // review: do we want to tell the bot it made a bad move?
                 // robot.failedMove();
@@ -44,6 +43,12 @@ public class Simulator implements Runnable {
 
 
         }
+    }
+
+    private void moveRobot(Robot robot, Location robotNextLocation) {
+        playField.placeRobot(robot, robotNextLocation);
+
+        robot.hasMovedTo(playField.getTile(robotNextLocation));
     }
 
     private boolean isLocationValid(Location location) {
@@ -67,10 +72,21 @@ public class Simulator implements Runnable {
 
     public void placeBotsInPlayField() {
         for (Robot robot : robots) {
-            if (isLocationValid(robot.getTile().getLocation())) {
-                playField.placeRobot(robot, robot.getTile().getLocation());
-            }
+            // TODO: determine a random location
+
+            Location startLocation = makeRandomLocation();
+
+            moveRobot(robot, startLocation);
         }
+    }
+
+    private Location makeRandomLocation() {
+        Random random = new Random();
+
+        int maxX = random.nextInt(playField.getCols());
+        int maxY = random.nextInt(playField.getRows());
+
+        return new Location(maxX, maxY);
     }
 
     @Override

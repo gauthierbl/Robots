@@ -3,9 +3,7 @@ package org.lab304.robots.driver;
 import org.lab304.robots.bots.Robot;
 import org.lab304.robots.bots.impl.SouthWalker;
 import org.lab304.robots.bots.impl.EastWalker;
-import org.lab304.robots.location.Location;
 import org.lab304.robots.playfield.PlayField;
-import org.lab304.robots.playfield.tile.Tile;
 import org.lab304.robots.simulator.Simulator;
 
 import java.io.IOException;
@@ -17,30 +15,33 @@ import java.util.Collection;
  */
 public class Driver {
 
+    private static final String playFieldFile = "./src/main/resources/PlayField.txt";
+
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
 
-        PlayField playField = new PlayField();
+        PlayField playField = fetchPlayField(playFieldFile);
 
-        playField.loadPlayFieldFromFile("./src/main/resources/PlayField.txt");
-
-        Robot southWalkingRobot = new SouthWalker();
-        Robot eastWalkingRobot = new EastWalker();
-
-        // FIXME
-        Tile eastStartTile = playField.getTile(new Location(1,2));
-        Tile southStatTile = playField.getTile(new Location(2,1));
-
-        eastWalkingRobot.setTile(eastStartTile);
-        southWalkingRobot.setTile(southStatTile);
-
-        Collection<Robot> robots = new ArrayList<Robot>();
-        robots.add(eastWalkingRobot);
-        robots.add(southWalkingRobot);
+        Collection<Robot> robots = makeRobots();
 
         Simulator sim = new Simulator(robots, playField);
 
         sim.start();
+    }
 
+    private static PlayField fetchPlayField(final String fileName) throws IOException {
+        PlayField playField = new PlayField();
+        playField.loadPlayFieldFromFile(fileName);
+        return playField;
+    }
+
+    private static Collection<Robot> makeRobots() {
+        Robot southWalkingRobot = new SouthWalker();
+        Robot eastWalkingRobot = new EastWalker();
+
+        Collection<Robot> robots = new ArrayList<Robot>();
+        robots.add(eastWalkingRobot);
+        robots.add(southWalkingRobot);
+        return robots;
     }
 }
