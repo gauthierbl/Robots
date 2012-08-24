@@ -124,7 +124,6 @@ public class PlayField {
         int currentY = currentLocation.getY();
 
         // REVIEW: This is ugly. Is there a better way?
-        // TODO the wraparound is not working for -1 cases
         if (Direction.NORTH == direction) {
             result = new Location(currentX, decrementY(currentY));
         } else if (Direction.NORTHEAST == direction) {
